@@ -1,0 +1,40 @@
+# Create the initial dictionary of the current employees and and their pay rates
+employees = {
+    'Aubrey' : 21.05,
+    'Sam' : 20.95,
+    'Lucia' : 15.75,
+    'Tyler' : 15.75
+}
+
+# Create a list of terminated employees
+terminated_employees = ['Benjamin', 'Sandy']
+
+# Ask the user for action
+action = input("Do you want to add, remove, or view the current employees?")
+
+# Perform actions based on user input
+if action.lower() == 'add':
+  name = input("Enter the name of the new employee: ")
+  pay_rate = float(input("Enter the pay rate for {} : ".format(name)))
+  employees[name] = pay_rate
+  print("Employee {} with pay rate {} has been added.".format(name, pay_rate))
+  print("Updated Employees Dictionary:", employees)
+  print("Terminated Employees List:", terminated_employees)
+
+elif action.lower() == 'remove':
+  name = input("Enter the name of employee to be terminated: ")
+  if name in employees:
+    terminated_employees.insert(0, name) # add to the beginning of the list
+    del employees[name] # Remove from the dictionary
+    print("Employee {} has been terminated.".format(name))
+    print("Updated Employees Dictionary:", employees)
+    print("Terminated Employees List:", termianted_employees)
+  else:
+    print("Employee {} not found.".format(name))
+
+elif action.lower() == 'view':
+  print("Employees Dictionary:", employees)
+  print("Terminated Employees List:", terminated_employees)
+
+else:
+  print("Invalid action. Please choose add, remove, or view.")
